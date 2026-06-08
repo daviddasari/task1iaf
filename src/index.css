@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Field Journal Palette
+   ═══════════════════════════════════════════════ */
+:root {
+  --ink:        #1C1410;
+  --soil:       #3D2B1F;
+  --parchment:  #F5EDD9;
+  --aged-paper: #EDE0C4;
+  --saffron:    #D4620A;
+  --forest:     #2C5F3A;
+  --dust:       #9C8B72;
+  --chalk:      #FAF6EE;
+}
+
+@theme {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Instrument Sans', sans-serif;
+  --font-mono: 'Martian Mono', monospace;
+  --color-ink: #1C1410;
+  --color-soil: #3D2B1F;
+  --color-parchment: #F5EDD9;
+  --color-aged-paper: #EDE0C4;
+  --color-saffron: #D4620A;
+  --color-forest: #2C5F3A;
+  --color-dust: #9C8B72;
+  --color-chalk: #FAF6EE;
+}
+
+/* ═══════════════════════════════════════════════
+   GLOBAL RESETS & BASE STYLES
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background-color: var(--parchment);
+  color: var(--soil);
+  line-height: 1.75;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════
+   GLOBAL SECTION CONTAINER
+   ═══════════════════════════════════════════════ */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 6vw, 80px);
+}
+
+/* ═══════════════════════════════════════════════
+   PAPER GRAIN TEXTURE OVERLAY
+   ═══════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════ */
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+p {
+  font-family: 'Instrument Sans', sans-serif;
+  color: var(--soil);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION HEADINGS — Left-anchored, dashed underline
+   ═══════════════════════════════════════════════ */
+.section-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  color: var(--ink);
+  line-height: 1.2;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--saffron);
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION TAG (small label above heading)
+   ═══════════════════════════════════════════════ */
+.section-tag {
+  font-family: 'Martian Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 8px;
+}
+
+/* ═══════════════════════════════════════════════
+   HAND-DRAWN WAVY DIVIDER
+   ═══════════════════════════════════════════════ */
+.wavy-divider {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.wavy-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   STAT CHIP STYLE
+   ═══════════════════════════════════════════════ */
+.stat-chip {
+  font-family: 'Martian Mono', monospace;
+  background: var(--aged-paper);
+  border: 1px solid var(--dust);
+  border-radius: 4px;
+  padding: 6px 14px;
+  display: inline-block;
+}
+
+/* ═══════════════════════════════════════════════
+   CREDENTIAL PILL — dashed border
+   ═══════════════════════════════════════════════ */
+.cred-pill {
+  font-family: 'Martian Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1.5px dashed var(--forest);
+  color: var(--forest);
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: inline-block;
+  background: transparent;
+}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════ */
+.btn-primary {
+  background: var(--saffron);
+  color: #FAF6EE;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: #b8530a;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1.5px dashed var(--dust);
+  color: var(--soil);
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--saffron);
+  color: var(--saffron);
+}
+
+.btn-forest {
+  background: var(--forest);
+  color: #FAF6EE;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-forest:hover {
+  background: #1e4428;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--dust); border-radius: 4px; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — MOBILE BUTTONS
+   ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-outline,
+  .btn-forest {
+    width: 100%;
+    justify-content: center;
+  }
+}
