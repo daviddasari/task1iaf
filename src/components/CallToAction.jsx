@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import logo from '../assets/amigo.png';
 
 export default function CallToAction() {
   return (
@@ -18,6 +19,19 @@ export default function CallToAction() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
         >
+          <img
+            src={logo}
+            alt=""
+            style={{
+              height: '36px',
+              width: 'auto',
+              opacity: 0.9,
+              marginBottom: '16px',
+              display: 'block',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
           <div
             className="section-tag"
             style={{ color: 'var(--saffron)' }}

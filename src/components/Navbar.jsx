@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/amigo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,9 +38,17 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <a href="#" className="font-display text-xl text-chalk no-underline tracking-wide">
-          In<span className="text-saffron">Amigos</span>{' '}
-          <span className="font-light opacity-70">Foundation</span>
+        <a href="#" style={{ display: 'block', lineHeight: 0 }}>
+          <img
+            src={logo}
+            alt="InAmigos Foundation"
+            style={{
+              height: '44px',
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+            }}
+          />
         </a>
 
         {/* Desktop Links */}

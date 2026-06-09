@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useCountUp } from '../hooks/useCountUp';
+import logo from '../assets/amigo.png';
 
 function AnimatedGradientText({ children }) {
   return (
@@ -77,11 +78,28 @@ export default function Hero() {
         paddingBottom: 'clamp(64px, 8vw, 100px)',
       }}
     >
+      {/* Logo watermark */}
+      <img
+        src={logo}
+        alt=""
+        style={{
+          position: 'absolute',
+          right: '-40px',
+          bottom: '-30px',
+          width: 'clamp(200px, 22vw, 320px)',
+          opacity: 0.06,
+          pointerEvents: 'none',
+          userSelect: 'none',
+          zIndex: 0,
+        }}
+      />
+
       {/* Top spacer for fixed navbar */}
       <div style={{ height: '56px' }} />
 
       <motion.div
         className="section-container"
+        style={{ position: 'relative', zIndex: 1 }}
         variants={stagger}
         initial="hidden"
         animate="visible"

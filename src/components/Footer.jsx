@@ -1,3 +1,5 @@
+import logo from '../assets/amigo.png';
+
 export default function Footer() {
   return (
     <footer
@@ -9,6 +11,20 @@ export default function Footer() {
       id="footer"
     >
       <div className="section-container">
+        {/* Centered Logo */}
+        <img
+          src={logo}
+          alt="InAmigos Foundation"
+          style={{
+            height: '52px',
+            width: 'auto',
+            opacity: 0.85,
+            marginBottom: '20px',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        />
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
           {/* Logo */}
           <div className="font-display text-lg" style={{ color: 'var(--chalk)' }}>
