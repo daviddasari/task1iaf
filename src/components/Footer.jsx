@@ -85,6 +85,27 @@ export default function Footer() {
             © {new Date().getFullYear()} InAmigos Foundation. All rights reserved.
           </p>
         </div>
+
+        {/* Developer credit */}
+        <p
+          className="text-xs"
+          style={{
+            color: 'var(--dust)',
+            opacity: 0.5,
+            textAlign: 'center',
+            marginTop: '16px',
+          }}
+        >
+          Developed by David — Content Writer Intern ·{' '}
+          <a
+            href="mailto:2410030124@klh.edu.in"
+            className="no-underline transition-colors duration-200 hover:text-saffron"
+            style={{ color: 'var(--dust)' }}
+            id="footer-dev-email"
+          >
+            2410030124@klh.edu.in
+          </a>
+        </p>
       </div>
     </footer>
   );
