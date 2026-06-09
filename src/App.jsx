@@ -6,6 +6,7 @@ import ImpactBanner from './components/ImpactBanner';
 import Credentials from './components/Credentials';
 import Events from './components/Events';
 import Gallery from './components/Gallery';
+import DonationBreakdown from './components/DonationBreakdown';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 
@@ -21,6 +22,7 @@ export default function App() {
         <Credentials />
         <Events />
         <Gallery />
+        <DonationBreakdown />
         <CallToAction />
       </main>
       <Footer />
